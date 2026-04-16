@@ -1,0 +1,19 @@
+import { FC, InputHTMLAttributes } from 'react';
+
+export interface ProfileFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
+
+export const ProfileField: FC<ProfileFieldProps> = ({ label, className = '', ...rest }) => {
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="text-xs font-medium text-brand-text-muted">{label}</label>
+      <input
+        {...rest}
+        className={`w-full rounded-[8px] bg-[#EFF1F999] px-4 py-3 text-sm text-brand-dark placeholder:text-[#ABAFB1] focus:outline-none focus:ring-2 focus:ring-brand-primary/30 ${className}`}
+      />
+    </div>
+  );
+};
+
+export default ProfileField;
